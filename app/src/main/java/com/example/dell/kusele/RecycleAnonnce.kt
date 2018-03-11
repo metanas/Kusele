@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.widget.AppCompatButton
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,9 +20,8 @@ class RecycleAnonnce(val produitList: ArrayList<Annonce>) : RecyclerView.Adapter
         holder.dateExprire.text = produitList[position].DateExpire
         holder.PrixPost.text = produitList[position].PrixAnnouce.toString()
         holder.prixReduce.text = produitList[position].PrixReduce.toString()
-        val intent = Intent(holder.itemView.context,DetailActivity::class.java)
-        intent.putExtra("test", produitList[position].nom)
-        holder.card.setOnClickListener{
+        val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+        holder.card.setOnClickListener {
             holder.itemView.context.startActivity(intent)
         }
     }
