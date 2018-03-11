@@ -1,14 +1,17 @@
 package com.example.dell.kusele
 
-import android.support.v4.app.Fragment
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
+import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import java.util.*
+import android.widget.LinearLayout
+import kotlinx.android.synthetic.main.frag_favorite.*
+import kotlinx.android.synthetic.main.frag_home.*
 
-public class HomeFrag() : Fragment() {
+public class HomeFrag : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -16,14 +19,69 @@ public class HomeFrag() : Fragment() {
         return rootView
     }
 
-    public class Product(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        var id:Int?=null
-        var nom:String?=null
-        var description:String?=null
-        var PrixProduit:Float?=null
-        var PrixReduce:Float?=null
-        var DatePost: Date?=null
-        var DateExpire: Date?=null
+    override fun onStart() {
+        super.onStart()
 
+        HomeRecycle.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
+        val users = ArrayList<Annonce>()
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+        ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+        users.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
+                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
+                ,10))
+
+        var adapter = RecycleAnonnce(users)
+        HomeRecycle.adapter = adapter
     }
 }

@@ -14,6 +14,9 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import java.io.Console
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,16 +31,14 @@ class MainActivity : AppCompatActivity() {
      */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     val MY_CAMERA_PERMETION = 12
+    var mAuth:FirebaseAuth?=null
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSupportActionBar(toolbar)
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        mAuth = FirebaseAuth.getInstance()
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
-        val t = mSectionsPagerAdapter!!.getItem(1)
 
         Camera.setOnClickListener {
             openCamera()
@@ -48,12 +49,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        val user = mAuth!!.currentUser
+        if(user == null){
+            startActivity(Intent(this, Main2Activity::class.java))
+            finish()
+        }else
+        Toast.makeText(this,user.displayName,Toast.LENGTH_SHORT).show()
+    }
+
     @RequiresApi(Build.VERSION_CODES.M)
     private fun openCamera() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
             val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, 0)
+            startActivityForResult(intent, 17)
         } else {
             if (shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA)) {
 
@@ -79,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
-
+                    Toast.makeText(this,"Permission denied", Toast.LENGTH_SHORT).show()
                 }
                 return
             }
@@ -94,25 +105,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-        if (id == R.id.action_settings) {
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
 
     /**
      * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -121,7 +113,7 @@ class MainActivity : AppCompatActivity() {
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
-            var tab: Fragment? = null
+            var tab: Fragment
             when (position) {
                 0 -> {
                     tab = MapFrag()
