@@ -22,32 +22,33 @@ public class FavoriteFrag : Fragment() {
         super.onStart()
         FavoriteRecycle.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
         val annonce = ArrayList<Annonce>()
-        annonce.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
-                ,10))
-        annonce.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
-                ,10))
-        annonce.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
-                ,10))
-        annonce.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
-                ,10))
-        annonce.add(Annonce(BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), BitmapFactory.decodeResource(context!!.getResources(),
-                R.drawable.kusele), 1,"produit1",200f,100f, "2-10-2018","5-10-2018"
-                ,10))
+
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+        annonce.add(Annonce(1, R.drawable.kusele, R.drawable.kusele, 1, "produit1", 200f, 100f, "2-10-2018", "5-10-2018"
+                , 10))
+
         val marcher = ArrayList<Marcher>()
-        marcher.add(Marcher("Macdo", annonce,BitmapFactory.decodeResource(context!!.getResources(),R.drawable.kusele)))
-        marcher.add(Marcher("Macdo", annonce,BitmapFactory.decodeResource(context!!.getResources(),R.drawable.kusele)))
-        marcher.add(Marcher("Macdo", ArrayList<Annonce>(),BitmapFactory.decodeResource(context!!.getResources(),R.drawable.kusele)))
-        marcher.add(Marcher("Macdo", annonce,BitmapFactory.decodeResource(context!!.getResources(),R.drawable.kusele)))
-        marcher.add(Marcher("Macdo", annonce,BitmapFactory.decodeResource(context!!.getResources(),R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", ArrayList<Annonce>(), BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
+        marcher.add(Marcher("Macdo", annonce, BitmapFactory.decodeResource(context!!.getResources(), R.drawable.kusele)))
         var adapter = RecycleMarche(marcher)
         FavoriteRecycle.adapter = adapter
     }
