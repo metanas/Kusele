@@ -1,16 +1,16 @@
 package com.example.dell.kusele
 
-import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-public class MapFrag : Fragment() {
+class SignUpActivity : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        val rootView = inflater.inflate(R.layout.frag_map, container, false)
+                              savedInstanceState: Bundle?): View? {
+        val rootView = inflater.inflate(R.layout.sign_up, container, false)
         return rootView
     }
 }

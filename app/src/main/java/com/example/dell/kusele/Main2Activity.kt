@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -40,7 +38,7 @@ class Main2Activity : AppCompatActivity() {
         super.onStart()
         val currentUser = mAuth!!.currentUser
         if (currentUser != null) {
-            val intent = Intent(this, Main::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -67,7 +65,7 @@ class Main2Activity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         val user = mAuth!!.getCurrentUser()
                         if (user != null) {
-                            startActivity(Intent(this, Main::class.java))
+                            startActivity(Intent(this, MainActivity::class.java))
                         } else {
                             Toast.makeText(this@Main2Activity, "Probleme de connection", Toast.LENGTH_SHORT).show()
                         }
@@ -102,7 +100,7 @@ class Main2Activity : AppCompatActivity() {
         mAuth!!.signInWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(this, Main::class.java))
+                        startActivity(Intent(this, MainActivity::class.java))
                     } else {
                         // If sign in fails, display a message to the user.
                         Snackbar.make(findViewById(R.id.main_activity), "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
