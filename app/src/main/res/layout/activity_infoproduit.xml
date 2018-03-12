@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".Infoproduit">
 
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo">
+
+        <EditText
+            android:id="@+id/newproduit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom de produit" />
+
+        <EditText
+            android:id="@+id/qte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantite"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/prix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prix actuel"
+            android:inputType="numberDecimal" />
+
+
+        <EditText
+            android:id="@+id/newP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nouveau prix"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/ajout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Commencement"
+            android:inputType="datetime" />
+
+        <EditText
+            android:id="@+id/avant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Avant le"
+            android:inputType="datetime" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Ajouter" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

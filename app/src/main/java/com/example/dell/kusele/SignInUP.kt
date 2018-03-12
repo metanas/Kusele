@@ -1,11 +1,15 @@
 package com.example.dell.kusele
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
+import com.example.dell.kusele.R.id.PasswordText
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_sign_in_up.*
 
 class SignInUP : AppCompatActivity() {
@@ -32,6 +36,16 @@ class SignInUP : AppCompatActivity() {
 
         // Set up the ViewPager with the sections adapter.
         container2.adapter = mSectionsPagerAdapter
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val user = mAuth!!.currentUser
+        if (user != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
     }
 
 

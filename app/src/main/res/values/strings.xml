@@ -26,4 +26,8 @@
     <string name="title_activity_sign_in_up">SignInUP</string>
     <string name="forgetpassword">mot de passe oublie ?</string>
     <string name="connecter">Se Connecter</string>
+    <string name="swipe">Gliser pour s\'inscrire</string>
+    <string name="Inscript">Inscription</string>
+    <string name="Ajouter">Ajouter</string>
+    <string name="AmI">Je suis ... ?</string>
 </resources>

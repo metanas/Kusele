@@ -5,11 +5,70 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroudinsciption"
     tools:context=".SignInUP">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_launcher_app"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <TextView
+        android:id="@+id/titleInscription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hellllllllllllll"
-        android:textColor="@android:color/white" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="roboto-black"
+        android:text="@string/Inscript"
+        android:textColor="@android:color/black"
+        android:textSize="48dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EmailTextInsc"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="roboto"
+        android:hint="@string/EmailHint"
+        android:textColor="@android:color/white"
+        android:inputType="textEmailAddress"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleInscription"
+
+        />
+
+    <EditText
+        android:id="@+id/PasswordTextInsc"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="roboto"
+        android:hint="@string/PasswordHint"
+        android:textColor="@android:color/white"
+        android:inputType="textPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EmailTextInsc" />
+
+    <Button
+        android:id="@+id/Sinscrire"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="roboto"
+        android:text="@string/Sinscrire"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PasswordTextInsc" />
+
+
 </android.support.constraint.ConstraintLayout>

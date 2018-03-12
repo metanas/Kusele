@@ -9,19 +9,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="roboto-black"
         android:text="Login"
-        android:textColor="@android:color/white"
         android:textSize="48dp"
+        android:textColor="#fffff1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/EmailText"
+        android:id="@+id/EmailTexts"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="roboto"
         android:hint="@string/EmailHint"
+        android:textColorHint="@android:color/white"
         android:inputType="textEmailAddress"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,30 +32,46 @@
 
         />
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_launcher_app"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <EditText
-        android:id="@+id/PasswordText"
+        android:id="@+id/PasswordTexts"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
+        android:fontFamily="roboto"
         android:hint="@string/PasswordHint"
-        android:inputType="textEmailAddress"
+        android:textColorHint="@android:color/white"
+        android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/EmailText" />
+        app:layout_constraintTop_toBottomOf="@id/EmailTexts" />
 
     <TextView
         android:id="@+id/forget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="roboto"
         android:text="@string/forgetpassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/PasswordText" />
+        app:layout_constraintTop_toBottomOf="@id/PasswordTexts" />
 
     <Button
         android:id="@+id/seconnecter"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
+        android:fontFamily="roboto"
         android:text="@string/connecter"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forget" />
@@ -61,15 +80,46 @@
         android:id="@+id/or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="roboto"
         android:text="@string/OR"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/seconnecter" />
 
     <com.google.android.gms.common.SignInButton
+        android:id="@+id/CNWG"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/or"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/or" />
+
+    <LinearLayout
+        android:id="@+id/inscriptSwipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="roboto"
+            android:text="@string/swipe"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/ic_trending_flat_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/inscriptSwipe" />
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>

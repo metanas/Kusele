@@ -17,24 +17,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".SignUPActivity" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            >
-        </activity>
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".Infoproduit" />
-        <activity
-            android:name=".SignInUP"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".Infoproduit" />
+        <activity
+            android:name=".SignInUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Choose" />
+        <activity android:name=".InfoShop" />
+        <activity android:name=".InfoUser"></activity>
     </application>
 
 </manifest>

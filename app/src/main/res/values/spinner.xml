@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="array_type">
+    <item>Restaurant</item>
+    <item>SuperMarchet</item>
+    <item>Boulangerie</item>
+    <item>Café</item>
+    <item>Distribution alimentaire</item>
+    <item>Traiteur</item>
+    <item>Hotel</item>
+    <item>Marché</item>
+</string-array>
+</resources>

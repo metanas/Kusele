@@ -24,7 +24,12 @@ import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
 import android.support.annotation.NonNull
+import android.widget.TimePicker
 import java.lang.reflect.Array.getByte
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
+        mAuth!!.signOut()
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
         Camera.setOnClickListener {
@@ -57,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         }
         // Set up the ViewPager with the sections adapter.
         container.adapter = mSectionsPagerAdapter
-        container.setCurrentItem(1)
+        container.currentItem = 1
         storage = FirebaseStorage.getInstance()
     }
 
@@ -66,22 +72,9 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val user = mAuth!!.currentUser
         if (user == null) {
-            startActivity(Intent(this, Main2Activity::class.java))
+            startActivity(Intent(this, SignInUP::class.java))
             finish()
         }
-        val storageReference = storage!!.getReference()
-
-        val Ref = storageReference.child("Jahmati.jpg")
-
-        val t = Ref.getBytes(One_Mega).addOnSuccessListener(OnSuccessListener<ByteArray> {
-            // Data for "images/island.jpg" is returns, use this as needed
-            val h = BitmapFactory.decodeByteArray(it, 0, it.size)
-            Camera.setImageBitmap(h)
-        }).addOnFailureListener(OnFailureListener {
-            // Handle any errors
-        })
-
-        Toast.makeText(this, Ref.path, Toast.LENGTH_SHORT).show()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -105,12 +98,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    val random = Random()
+
+    fun rand(from: Int, to: Int) : Int {
+        return random.nextInt(to - from) + from
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val extras = data.extras
             val imageBitmap = extras!!.get("data") as Bitmap
             val storageReference = storage!!.getReference()
-            val Ref = storageReference.child("")
+            val w = "${mAuth!!.currentUser!!.email}${rand(0,999999999)}"
+            val Ref = storageReference.child(w)
             val baos = ByteArrayOutputStream()
             imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
             val data = baos.toByteArray()
@@ -122,8 +122,8 @@ class MainActivity : AppCompatActivity() {
                 // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                 val downloadUrl = taskSnapshot.downloadUrl
                 val tent = Intent(this, Infoproduit::class.java)
-                (downloadUrl.toString())
-
+                tent.putExtra("w", w)
+                startActivity(tent)
             })
         }
     }
